@@ -2,1444 +2,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Da Khyber Khel — The KPK Health Futures Protocol | NMO President, IFMSA-Pakistan</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
-
-        :root {
-            --sand: #D4A76A;
-            --lapis: #1E3A5F;
-            --saffron: #C4922E;
-            --charcoal: #2D2D2D;
-            --mist: #F5F0E8;
-            --deep-red: #8B1A1A;
-            --white-light: #FFFFFF;
-            --shadow-soft: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            --transition-slow: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #1a1a1a;
-            color: var(--charcoal);
-            overflow-x: hidden;
-        }
-
-        /* Presentation Container */
-        .presentation {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            background: var(--mist);
-            box-shadow: var(--shadow-soft);
-        }
-
-        /* Slide Styles */
-        .slide {
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            padding: 60px 80px;
-            transition: all var(--transition-slow);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 1;
-        }
-
-        .slide-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 900px;
-            width: 100%;
-        }
-
-        /* SLIDE 1: TITLE SLIDE */
-        .slide-1 {
-            background: linear-gradient(135deg, rgba(212, 167, 106, 0.35) 0%, rgba(212, 167, 106, 0.15) 50%, rgba(30, 58, 95, 0.25) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23C4922E" opacity="0.08" width="1200" height="800"/><path d="M0 400 Q300 200 600 400 T1200 400" stroke="%231E3A5F" stroke-width="2" fill="none" opacity="0.2"/><circle cx="600" cy="300" r="80" stroke="%23D4A76A" stroke-width="1" fill="none" opacity="0.3"/></svg>');
-            background-size: cover;
-            background-color: #2D2010;
-        }
-
-        .slide-1 .slide-content {
-            animation: fadeInUp 1.5s ease-out;
-        }
-
-        .slide-1 .urdu-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 5.5rem;
-            font-weight: 900;
-            color: var(--saffron);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-            line-height: 1.1;
-        }
-
-        .slide-1 .english-subtitle {
-            font-family: 'Lora', serif;
-            font-size: 2rem;
-            font-weight: 400;
-            color: var(--mist);
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-            opacity: 0.9;
-        }
-
-        .slide-1 .president-name {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: var(--saffron);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-top: 30px;
-            opacity: 0.85;
-        }
-
-        .slide-1 .divider {
-            width: 80px;
-            height: 2px;
-            background: var(--saffron);
-            margin: 20px auto;
-            opacity: 0.7;
-        }
-
-        /* SLIDE 2: SILENCE BEFORE THE STORY */
-        .slide-2 {
-            background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23D4A76A" opacity="0.05" width="1200" height="800"/><ellipse cx="600" cy="400" rx="250" ry="300" fill="%231E3A5F" opacity="0.1"/></svg>');
-            background-color: #1a1a1a;
-        }
-
-        .slide-2 .slide-content {
-            animation: fadeIn 2s ease-out;
-        }
-
-        .slide-2 .quote-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            font-weight: 400;
-            color: var(--mist);
-            line-height: 1.4;
-            font-style: italic;
-        }
-
-        .slide-2 .quote-urdu {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--saffron);
-            margin-bottom: 15px;
-            font-weight: 400;
-        }
-
-        /* SLIDE 3: THE QUESTION */
-        .slide-3 {
-            background: linear-gradient(135deg, rgba(30, 58, 95, 0.9) 0%, rgba(30, 58, 95, 0.7) 50%, rgba(30, 58, 95, 0.95) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><path d="M100 700 Q300 400 600 500 T1100 300" stroke="%23D4A76A" stroke-width="1.5" fill="none" opacity="0.3"/><circle cx="600" cy="350" r="150" stroke="%23C4922E" stroke-width="0.5" fill="none" opacity="0.2"/></svg>');
-            background-size: cover;
-            background-color: var(--lapis);
-        }
-
-        .slide-3 .slide-content {
-            animation: fadeIn 1.8s ease-out;
-        }
-
-        .slide-3 .question-urdu {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--saffron);
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .slide-3 .question-english {
-            font-family: 'Lora', serif;
-            font-size: 2.2rem;
-            font-weight: 400;
-            color: var(--mist);
-            font-style: italic;
-            opacity: 0.9;
-        }
-
-        .slide-3 .location-text {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            color: var(--sand);
-            margin-top: 40px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            opacity: 0.8;
-        }
-
-        /* SLIDE 4: SESSION ARCHITECTURE */
-        .slide-4 {
-            background: var(--mist);
-        }
-
-        .slide-4 .slide-content {
-            text-align: left;
-        }
-
-        .slide-4 .architecture-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--lapis);
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .journey-map {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-            padding: 20px 0;
-        }
-
-        .journey-map::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 5%;
-            right: 5%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--sand), var(--lapis), var(--saffron), var(--charcoal), var(--sand));
-            z-index: 0;
-        }
-
-        .journey-stop {
-            text-align: center;
-            z-index: 1;
-            background: var(--mist);
-            padding: 15px 25px;
-            border-radius: 8px;
-            position: relative;
-        }
-
-        .journey-stop .stop-icon {
-            font-size: 2rem;
-            margin-bottom: 8px;
-            color: var(--lapis);
-        }
-
-        .journey-stop .stop-label {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--charcoal);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .slide-4 .bottom-text {
-            text-align: center;
-            margin-top: 40px;
-            font-family: 'Lora', serif;
-            font-size: 1.2rem;
-            color: var(--lapis);
-            font-style: italic;
-        }
-
-        /* SLIDE 5: GROUND TRUTH MAP */
-        .slide-5 {
-            background: linear-gradient(135deg, rgba(212, 167, 106, 0.2) 0%, rgba(212, 167, 106, 0.05) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><path d="M200 200 L400 150 L600 300 L800 200 L1000 350 L1100 250" stroke="%231E3A5F" stroke-width="1" fill="none" opacity="0.2"/><path d="M150 500 L350 450 L550 600 L750 500 L950 650" stroke="%23C4922E" stroke-width="1" fill="none" opacity="0.15"/><circle cx="300" cy="200" r="15" fill="%231E3A5F" opacity="0.1"/><circle cx="600" cy="350" r="25" fill="%23C4922E" opacity="0.08"/><circle cx="900" cy="280" r="18" fill="%231E3A5F" opacity="0.1"/></svg>');
-            background-size: cover;
-            background-color: #E8DCC8;
-        }
-
-        .slide-5 .slide-content {
-            text-align: left;
-        }
-
-        .slide-5 .map-urdu {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--lapis);
-            margin-bottom: 5px;
-            font-weight: 700;
-        }
-
-        .slide-5 .map-english {
-            font-family: 'Lora', serif;
-            font-size: 1.5rem;
-            color: var(--charcoal);
-            font-style: italic;
-            margin-bottom: 30px;
-        }
-
-        .slide-5 .district-info {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            color: var(--charcoal);
-            line-height: 1.8;
-            max-width: 600px;
-            border-left: 3px solid var(--saffron);
-            padding-left: 25px;
-        }
-
-        /* SLIDES 6-10: DATA SLIDES */
-        .slide-data {
-            background: var(--mist);
-        }
-
-        .slide-data .data-container {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            max-width: 1000px;
-        }
-
-        .slide-data .data-visual {
-            flex: 1;
-            height: 350px;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .slide-data .data-visual.maternal {
-            background: linear-gradient(135deg, #f5e6d3 0%, #e8d5c4 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .slide-data .data-visual.polio {
-            background: linear-gradient(135deg, #d4cfc4 0%, #c4bfb4 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .slide-data .data-visual.workforce {
-            background: linear-gradient(90deg, #e0d8c8 0%, #d0c8b8 100%);
-            display: flex;
-            gap: 2px;
-        }
-
-        .slide-data .data-visual.workforce .half {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            color: var(--charcoal);
-            font-weight: 500;
-        }
-
-        .slide-data .data-visual.workforce .half:first-child {
-            background: rgba(30, 58, 95, 0.15);
-            border-right: 1px solid var(--lapis);
-        }
-
-        .slide-data .data-visual.climate {
-            background: linear-gradient(135deg, #c8d8e8 0%, #b8c8d8 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .slide-data .data-visual.gap {
-            background: var(--white-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            color: var(--lapis);
-            font-family: 'Playfair Display', serif;
-        }
-
-        .slide-data .data-text {
-            flex: 1;
-            text-align: left;
-        }
-
-        .slide-data .data-stat {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--lapis);
-            line-height: 1.2;
-            margin-bottom: 15px;
-        }
-
-        .slide-data .data-interpretation {
-            font-family: 'Lora', serif;
-            font-size: 1.3rem;
-            color: var(--charcoal);
-            font-style: italic;
-            line-height: 1.6;
-        }
-
-        .slide-data .data-urdu {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: var(--saffron);
-            margin-bottom: 10px;
-        }
-
-        /* SLIDE 11: GLOBAL MANDATE */
-        .slide-11 {
-            background: var(--mist);
-        }
-
-        .slide-11 .mandate-table {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2px;
-            background: var(--sand);
-            border: 2px solid var(--sand);
-            border-radius: 4px;
-            overflow: hidden;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .slide-11 .mandate-header {
-            background: var(--lapis);
-            color: var(--mist);
-            padding: 15px 25px;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        .slide-11 .mandate-row {
-            background: var(--white-light);
-            padding: 15px 25px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            color: var(--charcoal);
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid rgba(212, 167, 106, 0.3);
-        }
-
-        .slide-11 .mandate-row:last-child {
-            border-bottom: none;
-        }
-
-        .slide-11 .mandate-row.left {
-            font-weight: 600;
-            color: var(--lapis);
-        }
-
-        .slide-11 .mandate-row.right {
-            color: var(--saffron);
-            font-style: italic;
-        }
-
-        /* SLIDE 12: FOUR LENSES INTRO */
-        .slide-12 {
-            background: var(--charcoal);
-        }
-
-        .slide-12 .lens-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .slide-12 .lens-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            border-top: 4px solid;
-        }
-
-        .slide-12 .lens-card.crisis {
-            border-color: var(--deep-red);
-        }
-        .slide-12 .lens-card.equity {
-            border-color: var(--lapis);
-        }
-        .slide-12 .lens-card.system {
-            border-color: var(--saffron);
-        }
-        .slide-12 .lens-card.youth {
-            border-color: var(--white-light);
-        }
-
-        .slide-12 .lens-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--mist);
-            margin-bottom: 8px;
-        }
-
-        .slide-12 .lens-icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            opacity: 0.8;
-        }
-
-        .slide-12 .intro-quote {
-            font-family: 'Lora', serif;
-            font-size: 1.3rem;
-            color: var(--mist);
-            font-style: italic;
-            margin-bottom: 40px;
-            text-align: center;
-            opacity: 0.9;
-        }
-
-        /* SLIDES 13-16: INDIVIDUAL LENS SLIDES */
-        .slide-lens {
-            background-size: cover;
-            background-position: center;
-            color: var(--mist);
-            text-align: center;
-        }
-
-        .slide-lens-13 {
-            background: linear-gradient(0deg, rgba(139, 26, 26, 0.75) 0%, rgba(139, 26, 26, 0.5) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%238B1A1A" opacity="0.1" width="1200" height="800"/><circle cx="600" cy="400" r="200" stroke="%23FFFFFF" stroke-width="0.5" fill="none" opacity="0.1"/></svg>');
-            background-color: #4a0a0a;
-        }
-
-        .slide-lens-14 {
-            background: linear-gradient(0deg, rgba(30, 58, 95, 0.8) 0%, rgba(30, 58, 95, 0.55) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><circle cx="600" cy="400" r="300" stroke="%23D4A76A" stroke-width="0.5" fill="none" opacity="0.1"/></svg>');
-            background-color: #0a1a2a;
-        }
-
-        .slide-lens-15 {
-            background: linear-gradient(0deg, rgba(196, 146, 46, 0.75) 0%, rgba(196, 146, 46, 0.5) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23C4922E" opacity="0.05" width="1200" height="800"/></svg>');
-            background-color: #5a3a0a;
-        }
-
-        .slide-lens-16 {
-            background: linear-gradient(0deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><circle cx="600" cy="400" r="180" stroke="%231E3A5F" stroke-width="1" fill="none" opacity="0.15"/></svg>');
-            background-color: #e8e8e8;
-            color: var(--charcoal);
-        }
-
-        .slide-lens .lens-urdu {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .slide-lens .lens-english {
-            font-family: 'Lora', serif;
-            font-size: 2rem;
-            font-style: italic;
-            margin-bottom: 25px;
-        }
-
-        .slide-lens .lens-question {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 400;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-
-        .slide-lens-16 .lens-urdu,
-        .slide-lens-16 .lens-english,
-        .slide-lens-16 .lens-question {
-            color: var(--charcoal);
-        }
-
-        /* SLIDE 17: CONVERGENCE */
-        .slide-17 {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-        }
-
-        .slide-17 .converge-beams {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 40px;
-        }
-
-        .slide-17 .beam {
-            width: 60px;
-            height: 200px;
-            border-radius: 4px;
-            opacity: 0.7;
-            transform-origin: bottom center;
-            animation: beamPulse 3s ease-in-out infinite;
-        }
-
-        .beam-red {
-            background: var(--deep-red);
-            animation-delay: 0s;
-        }
-        .beam-blue {
-            background: var(--lapis);
-            animation-delay: 0.5s;
-        }
-        .beam-gold {
-            background: var(--saffron);
-            animation-delay: 1s;
-        }
-        .beam-white {
-            background: var(--white-light);
-            animation-delay: 1.5s;
-        }
-
-        @keyframes beamPulse {
-            0%, 100% {
-                opacity: 0.5;
-                transform: scaleY(1);
-            }
-            50% {
-                opacity: 0.9;
-                transform: scaleY(1.1);
-            }
-        }
-
-        .slide-17 .converge-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--mist);
-            text-align: center;
-        }
-
-        .slide-17 .converge-sub {
-            font-family: 'Lora', serif;
-            font-size: 1.3rem;
-            color: var(--sand);
-            font-style: italic;
-            margin-top: 15px;
-        }
-
-        /* SLIDE 18: THREE TESTS */
-        .slide-18 {
-            background: #f5ecd7;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23D4A76A" opacity="0.03" width="1200" height="800"/></svg>');
-        }
-
-        .slide-18 .seals-container {
-            display: flex;
-            gap: 40px;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .slide-18 .seal {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid var(--saffron);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 25px;
-            background: rgba(255,255,255,0.7);
-            font-family: 'Playfair Display', serif;
-            font-size: 0.95rem;
-            color: var(--lapis);
-            font-weight: 700;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .slide-18 .central-text {
-            text-align: center;
-            margin-top: 30px;
-            font-family: 'Lora', serif;
-            font-size: 1.3rem;
-            color: var(--charcoal);
-            font-style: italic;
-        }
-
-        /* SLIDES 19-22: PRIORITY SLIDES */
-        .slide-priority {
-            background: linear-gradient(135deg, rgba(212, 167, 106, 0.15) 0%, rgba(30, 58, 95, 0.08) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><circle cx="600" cy="400" r="300" stroke="%23D4A76A" stroke-width="0.5" fill="none" opacity="0.1"/></svg>');
-            background-color: #faf7f0;
-        }
-
-        .slide-priority .priority-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 8rem;
-            font-weight: 900;
-            color: var(--saffron);
-            opacity: 0.3;
-            line-height: 1;
-            margin-bottom: -20px;
-        }
-
-        .slide-priority .priority-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--lapis);
-            margin-bottom: 15px;
-            line-height: 1.3;
-        }
-
-        .slide-priority .priority-desc {
-            font-family: 'Lora', serif;
-            font-size: 1.3rem;
-            color: var(--charcoal);
-            font-style: italic;
-            max-width: 650px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* SLIDE 22: FULL COMPACT */
-        .slide-22 {
-            background: #f5ecd7;
-            border: 8px double var(--saffron);
-            margin: 20px;
-            min-height: calc(100vh - 40px);
-        }
-
-        .slide-22 .compact-list {
-            text-align: left;
-            max-width: 700px;
-            margin: 0 auto;
-            list-style: none;
-            padding: 0;
-        }
-
-        .slide-22 .compact-list li {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: var(--lapis);
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(196, 146, 46, 0.3);
-            line-height: 1.4;
-        }
-
-        .slide-22 .compact-list li:last-child {
-            border-bottom: none;
-        }
-
-        .slide-22 .proclamation-text {
-            font-family: 'Lora', serif;
-            font-size: 1.2rem;
-            color: var(--charcoal);
-            font-style: italic;
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        /* SLIDE 23: BRIDGE TO PLENARIES */
-        .slide-23 {
-            background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><path d="M100 400 Q600 200 1100 400" stroke="%23D4A76A" stroke-width="2" fill="none" opacity="0.3"/></svg>');
-            background-color: #2d2d2d;
-            color: var(--mist);
-        }
-
-        .slide-23 .bridge-text {
-            font-family: 'Lora', serif;
-            font-size: 2rem;
-            font-style: italic;
-            margin-bottom: 30px;
-        }
-
-        .slide-23 .plenary-list {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .slide-23 .plenary-list li {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-            color: var(--sand);
-        }
-
-        /* SLIDE 24: BOX AND PROMISE */
-        .slide-24 {
-            background: var(--charcoal);
-        }
-
-        .slide-24 .box-visual {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(135deg, #8B6914 0%, #6B4914 100%);
-            margin: 0 auto 30px;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-        }
-
-        .slide-24 .box-text {
-            font-family: 'Lora', serif;
-            font-size: 1.4rem;
-            color: var(--mist);
-            font-style: italic;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* SLIDE 25: AUTHORSHIP */
-        .slide-25 {
-            background: linear-gradient(135deg, rgba(30, 58, 95, 0.9) 0%, rgba(30, 58, 95, 0.7) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><circle cx="600" cy="350" r="200" stroke="%23C4922E" stroke-width="1" fill="none" opacity="0.2"/></svg>');
-            background-color: var(--lapis);
-            color: var(--mist);
-        }
-
-        .slide-25 .authorship-urdu {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--saffron);
-            margin-bottom: 15px;
-        }
-
-        .slide-25 .authorship-english {
-            font-family: 'Lora', serif;
-            font-size: 1.8rem;
-            font-style: italic;
-            margin-bottom: 25px;
-        }
-
-        .slide-25 .authorship-call {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            color: var(--sand);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* SLIDE 26: CLOSING */
-        .slide-26 {
-            background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.3) 100%), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><path d="M0 600 Q600 300 1200 600" stroke="%23D4A76A" stroke-width="1" fill="none" opacity="0.15"/><circle cx="600" cy="350" r="250" stroke="%23C4922E" stroke-width="0.5" fill="none" opacity="0.1"/></svg>');
-            background-color: #2D2010;
-        }
-
-        .slide-26 .closing-urdu {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--saffron);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            margin-bottom: 15px;
-            line-height: 1.3;
-        }
-
-        .slide-26 .closing-english {
-            font-family: 'Lora', serif;
-            font-size: 1.3rem;
-            color: var(--mist);
-            font-style: italic;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        .slide-26 .closing-info {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            color: var(--sand);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            opacity: 0.8;
-            margin-top: 30px;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Navigation */
-        .nav-dots {
-            position: fixed;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.4);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255,255,255,0.6);
-        }
-
-        .nav-dot:hover,
-        .nav-dot.active {
-            background: var(--saffron);
-            border-color: var(--saffron);
-            transform: scale(1.3);
-            box-shadow: 0 0 15px rgba(196, 146, 46, 0.5);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .slide {
-                padding: 30px 25px;
-                min-height: auto;
-            }
-
-            .slide-1 .urdu-title {
-                font-size: 2.8rem;
-            }
-            .slide-1 .english-subtitle {
-                font-size: 1.3rem;
-            }
-            .slide-3 .question-urdu {
-                font-size: 2.2rem;
-            }
-            .slide-3 .question-english {
-                font-size: 1.4rem;
-            }
-
-            .journey-map {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .journey-map::before {
-                display: none;
-            }
-
-            .slide-data .data-container {
-                flex-direction: column;
-                gap: 25px;
-            }
-            .slide-data .data-stat {
-                font-size: 2rem;
-            }
-
-            .slide-11 .mandate-table {
-                grid-template-columns: 1fr;
-            }
-
-            .slide-18 .seals-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .slide-22 {
-                margin: 10px;
-                min-height: auto;
-                padding: 30px 20px;
-            }
-
-            .nav-dots {
-                right: 10px;
-                gap: 8px;
-            }
-            .nav-dot {
-                width: 8px;
-                height: 8px;
-            }
-        }
-
-        /* Print styles */
-        @media print {
-            .slide {
-                min-height: auto;
-                page-break-after: always;
-                padding: 40px;
-            }
-            .nav-dots {
-                display: none;
-            }
-            body {
-                background: white;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>TPHT Advocacy · Doctors as Architects of Change | IFMSA-Pakistan</title>
+  <!-- Google Fonts + Font Awesome 6 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9fbfd;
+      color: #152c3b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* custom scroll */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e2e8f0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2c7a5e;
+      border-radius: 12px;
+    }
+
+    /* gradients & containers */
+    .bg-soft {
+      background: linear-gradient(120deg, #f0f9f4 0%, #ffffff 100%);
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+    .section {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1b4d3e, #2c7a5e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .section-sub {
+      font-size: 1.2rem;
+      color: #4a6272;
+      border-left: 4px solid #2c7a5e;
+      padding-left: 1rem;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    .card {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(2px);
+      border-radius: 2rem;
+      padding: 1.8rem;
+      box-shadow: 0 15px 35px -12px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(44,122,94,0.15);
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 40px -14px rgba(0,0,0,0.15);
+      border-color: rgba(44,122,94,0.4);
+    }
+    .card-icon {
+      font-size: 2.5rem;
+      color: #2c7a5e;
+      margin-bottom: 1.2rem;
+    }
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin: 1.2rem 0;
+    }
+    .badge {
+      background: #eef4f0;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1b4d3e;
+    }
+    .quote-block {
+      background: #eef6f2;
+      border-radius: 2rem;
+      padding: 2rem;
+      font-style: italic;
+      font-size: 1.25rem;
+      font-weight: 500;
+      border-left: 8px solid #2c7a5e;
+      margin: 2rem 0;
+      font-family: 'Playfair Display', serif;
+    }
+    .level-pyramid {
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+    }
+    .level-item {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px dashed #dce7e2;
+    }
+    .level-tag {
+      font-weight: 800;
+      min-width: 130px;
+      font-size: 1rem;
+      color: #1f5e49;
+    }
+    .level-desc {
+      color: #2c3e44;
+      font-size: 0.95rem;
+    }
+    .steps-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .step-card {
+      flex: 1;
+      min-width: 200px;
+      background: #ffffffdd;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+      border-top: 4px solid #2c7a5e;
+    }
+    .step-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #2c7a5e;
+      opacity: 0.6;
+    }
+    .hhh-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0;
+    }
+    .hhh-card {
+      background: white;
+      border-radius: 1.8rem;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.2s;
+      box-shadow: 0 12px 28px -12px rgba(0,0,0,0.08);
+    }
+    .hhh-icon {
+      font-size: 2.8rem;
+      background: #eef2ef;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      color: #2c7a5e;
+    }
+    .jim-quote {
+      background: #152c3b;
+      color: #f3f9f0;
+      border-radius: 2rem;
+      padding: 2rem 2rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .footer {
+      background: #0b2b23;
+      color: #cfe6dd;
+      text-align: center;
+      padding: 2rem;
+      border-radius: 2rem 2rem 0 0;
+      margin-top: 2rem;
+    }
+    @media (max-width: 700px) {
+      .container {
+        padding: 2rem 1.2rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .level-item {
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .level-tag {
+        min-width: auto;
+      }
+    }
+    .hero {
+      text-align: center;
+      padding: 3rem 0 1rem;
+    }
+    .btn-soft {
+      background: #2c7a5e20;
+      border-radius: 40px;
+      padding: 0.5rem 1.2rem;
+      display: inline-block;
+      font-weight: 500;
+    }
+    i.fa, i.far, i.fas {
+      margin-right: 6px;
+    }
+  </style>
 </head>
 <body>
-    <div class="presentation" id="presentation">
-        <!-- SLIDE 1: TITLE -->
-        <section class="slide slide-1" id="slide1">
-            <div class="slide-content">
-                <div class="urdu-title">د خیبر خیل</div>
-                <div class="english-subtitle">The KPK Health Futures Protocol</div>
-                <div class="divider"></div>
-                <div class="english-subtitle" style="font-size:1.4rem;">Regional Priorities Session — IFMSA-Pakistan</div>
-                <div class="president-name">[NMO President Name] | NMO President, IFMSA-Pakistan</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 2: SILENCE BEFORE THE STORY -->
-        <section class="slide slide-2" id="slide2">
-            <div class="slide-content">
-                <div class="quote-urdu">"هر سوال یو قصہ لري."</div>
-                <div class="quote-text">"Every question carries a story."</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 3: THE QUESTION -->
-        <section class="slide slide-3" id="slide3">
-            <div class="slide-content">
-                <div class="question-urdu">"ہماری صحت کا مستقبل کون لکھے گا؟"</div>
-                <div class="question-english">"Who will write the future of our health?"</div>
-                <div class="location-text">This room. This moment. This session.</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 4: SESSION ARCHITECTURE -->
-        <section class="slide slide-4" id="slide4">
-            <div class="slide-content">
-                <div class="architecture-title">The Journey from Evidence to Promise</div>
-                <div class="journey-map">
-                    <div class="journey-stop">
-                        <div class="stop-icon">✒️</div>
-                        <div class="stop-label">The Ground Truth</div>
-                    </div>
-                    <div class="journey-stop">
-                        <div class="stop-icon">👁️</div>
-                        <div class="stop-label">Four Futures Lens</div>
-                    </div>
-                    <div class="journey-stop">
-                        <div class="stop-icon">⚖️</div>
-                        <div class="stop-label">The KPK Compact</div>
-                    </div>
-                    <div class="journey-stop">
-                        <div class="stop-icon">🧭</div>
-                        <div class="stop-label">Priorities Ratified</div>
-                    </div>
-                    <div class="journey-stop">
-                        <div class="stop-icon">🤝</div>
-                        <div class="stop-label">To the Plenaries</div>
-                    </div>
-                </div>
-                <div class="bottom-text">From evidence, to vision, to promise.</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 5: GROUND TRUTH MAP -->
-        <section class="slide slide-5" id="slide5">
-            <div class="slide-content">
-                <div class="map-urdu">"زمونږ ځمکه. زمونږ حقیقت."</div>
-                <div class="map-english">"Our land. Our reality."</div>
-                <div class="district-info">
-                    Khyber Pakhtunkhwa — thirty-eight districts.<br>
-                    Mountains, plains, cities, villages.<br>
-                    One province. But not one reality.<br><br>
-                    The health experience of a woman in Chitral<br>
-                    is not the same as a woman in Peshawar.<br>
-                    Our priorities must account for this diversity,<br>
-                    or they will fail.
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 6: MATERNAL HEALTH DATA -->
-        <section class="slide slide-data" id="slide6">
-            <div class="slide-content">
-                <div class="data-container">
-                    <div class="data-visual maternal">
-                        <span style="font-size:6rem;opacity:0.6;">👩‍👧</span>
-                    </div>
-                    <div class="data-text">
-                        <div class="data-urdu">د میندو روغتیا</div>
-                        <div class="data-stat">[X] Maternal Deaths<br>per 100,000 Live Births</div>
-                        <div class="data-interpretation">"Every number is a child without a mother."</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 7: IMMUNIZATION DATA -->
-        <section class="slide slide-data" id="slide7">
-            <div class="slide-content">
-                <div class="data-container">
-                    <div class="data-visual polio">
-                        <span style="font-size:5rem;opacity:0.6;">💉</span>
-                    </div>
-                    <div class="data-text">
-                        <div class="data-urdu">د ماشومانو واکسین</div>
-                        <div class="data-stat">[X]% Full Immunization<br>Coverage in [District]</div>
-                        <div class="data-interpretation">"The gap is not a number. It is an outbreak waiting to happen."</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 8: WORKFORCE DISTRIBUTION -->
-        <section class="slide slide-data" id="slide8">
-            <div class="slide-content">
-                <div class="data-container">
-                    <div class="data-visual workforce">
-                        <div class="half">Peshawar<br>🏥</div>
-                        <div class="half">Rural BHU<br>🏚️</div>
-                    </div>
-                    <div class="data-text">
-                        <div class="data-urdu">د ډاکټرانو ویش</div>
-                        <div class="data-stat">[X] vs [Y] Doctors<br>per 1,000 Population</div>
-                        <div class="data-interpretation">"The distance between these two images is measured in lives."</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 9: CLIMATE HEALTH -->
-        <section class="slide slide-data" id="slide9">
-            <div class="slide-content">
-                <div class="data-container">
-                    <div class="data-visual climate">
-                        <span style="font-size:5rem;opacity:0.6;">🌊</span>
-                    </div>
-                    <div class="data-text">
-                        <div class="data-urdu">اقلیم او روغتیا</div>
-                        <div class="data-stat">The 2022 Floods</div>
-                        <div class="data-interpretation">"Climate is not a future threat in KPK. It is a present health emergency."</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 10: THE DATA GAP -->
-        <section class="slide slide-data" id="slide10">
-            <div class="slide-content">
-                <div class="data-container">
-                    <div class="data-visual gap">?</div>
-                    <div class="data-text">
-                        <div class="data-urdu">هغه څه چې موږ نه شمېرل کېږو</div>
-                        <div class="data-stat">The Data Gap</div>
-                        <div class="data-interpretation">"And what we do not measure... we cannot address."</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 11: GLOBAL MANDATE LOCALIZED -->
-        <section class="slide slide-11" id="slide11">
-            <div class="slide-content">
-                <div style="text-align:center;font-family:'Playfair Display',serif;font-size:2rem;color:var(--lapis);margin-bottom:30px;font-weight:700;">The Global Mandate, Localized</div>
-                <div class="mandate-table">
-                    <div class="mandate-header">IFMSA Global Priority</div>
-                    <div class="mandate-header">KPK Translation</div>
-                    <div class="mandate-row left">Climate & Health</div>
-                    <div class="mandate-row right">Floods, heatwaves, and vector-borne disease in our mountains</div>
-                    <div class="mandate-row left">Equity in Health</div>
-                    <div class="mandate-row right">The rural-urban chasm; the refugees among us</div>
-                    <div class="mandate-row left">Health Systems Sustainability</div>
-                    <div class="mandate-row right">Workforce crisis; BHU functionality</div>
-                    <div class="mandate-row left">Meaningful Youth Engagement</div>
-                    <div class="mandate-row right">Medical students as health system actors</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 12: FOUR LENSES INTRODUCTION -->
-        <section class="slide slide-12" id="slide12">
-            <div class="slide-content">
-                <div class="intro-quote">"A priority seen through one lens is an opinion.<br>Through four lenses, it is a strategy."</div>
-                <div class="lens-grid">
-                    <div class="lens-card crisis">
-                        <div class="lens-icon">⚠️</div>
-                        <div class="lens-name">The Crisis Lens</div>
-                    </div>
-                    <div class="lens-card equity">
-                        <div class="lens-icon">⚖️</div>
-                        <div class="lens-name">The Equity Lens</div>
-                    </div>
-                    <div class="lens-card system">
-                        <div class="lens-icon">⚙️</div>
-                        <div class="lens-name">The System Lens</div>
-                    </div>
-                    <div class="lens-card youth">
-                        <div class="lens-icon">🌟</div>
-                        <div class="lens-name">The Youth Lens</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 13: THE CRISIS LENS -->
-        <section class="slide slide-lens slide-lens-13" id="slide13">
-            <div class="slide-content">
-                <div class="lens-urdu">"د بحران نظر"</div>
-                <div class="lens-english">"The Crisis Lens"</div>
-                <div class="lens-question">"What is urgent right now? What cannot wait?"</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 14: THE EQUITY LENS -->
-        <section class="slide slide-lens slide-lens-14" id="slide14">
-            <div class="slide-content">
-                <div class="lens-urdu">"د انصاف نظر"</div>
-                <div class="lens-english">"The Equity Lens"</div>
-                <div class="lens-question">"Who is being left behind? Whose health is invisible?"</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 15: THE SYSTEM LENS -->
-        <section class="slide slide-lens slide-lens-15" id="slide15">
-            <div class="slide-content">
-                <div class="lens-urdu">"د نظام نظر"</div>
-                <div class="lens-english">"The System Lens"</div>
-                <div class="lens-question">"What structural change would make everything else easier?"</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 16: THE YOUTH LENS -->
-        <section class="slide slide-lens slide-lens-16" id="slide16">
-            <div class="slide-content">
-                <div class="lens-urdu">"د ځوانانو نظر"</div>
-                <div class="lens-english">"The Youth Lens"</div>
-                <div class="lens-question">"Where can we, as medical students, make a difference no one else can?"</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 17: CONVERGENCE -->
-        <section class="slide slide-17" id="slide17">
-            <div class="slide-content">
-                <div class="converge-beams">
-                    <div class="beam beam-red"></div>
-                    <div class="beam beam-blue"></div>
-                    <div class="beam beam-gold"></div>
-                    <div class="beam beam-white"></div>
-                </div>
-                <div class="converge-text">"اتحاد"</div>
-                <div class="converge-sub">"From four lenses, one vision. From many voices, one compact."</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 18: THREE TESTS -->
-        <section class="slide slide-18" id="slide18">
-            <div class="slide-content">
-                <div style="text-align:center;font-family:'Playfair Display',serif;font-size:2rem;color:var(--lapis);margin-bottom:40px;font-weight:700;">The KPK Compact — Three Tests</div>
-                <div class="seals-container">
-                    <div class="seal">Grounded in<br>KPK's Reality</div>
-                    <div class="seal">Aligned with<br>IFMSA's Mandate</div>
-                    <div class="seal">Actionable by<br>Our LCs</div>
-                </div>
-                <div class="central-text">"A regional priority must pass all three gates, or it does not enter the Compact."</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 19: PRIORITY 1 -->
-        <section class="slide slide-priority" id="slide19">
-            <div class="slide-content">
-                <div class="priority-number">۱</div>
-                <div class="priority-title">"د صحت انصاف"<br>"Health Equity in KPK's Underserved Districts"</div>
-                <div class="priority-desc">"Because your postcode should not determine your life expectancy."</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 20: PRIORITY 2 -->
-        <section class="slide slide-priority" id="slide20">
-            <div class="slide-content">
-                <div class="priority-number">۲</div>
-                <div class="priority-title">"د اقلیم او روغتیا"<br>"Climate-Resilient Health Systems for KPK"</div>
-                <div class="priority-desc">"Because the next flood should not wash away our health infrastructure."</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 21: PRIORITY 3 -->
-        <section class="slide slide-priority" id="slide21">
-            <div class="slide-content">
-                <div class="priority-number">۳</div>
-                <div class="priority-title">"د ځوانانو ځواک"<br>"Meaningful Youth Engagement in Health Governance"</div>
-                <div class="priority-desc">"Because medical students are not just future doctors — we are current health actors."</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 22: FULL COMPACT -->
-        <section class="slide slide-22" id="slide22">
-            <div class="slide-content">
-                <div style="text-align:center;font-family:'Playfair Display',serif;font-size:2.5rem;color:var(--lapis);margin-bottom:30px;font-weight:700;">The KPK Compact</div>
-                <ul class="compact-list">
-                    <li><strong>۱.</strong> Health Equity in KPK's Underserved Districts</li>
-                    <li><strong>۲.</strong> Climate-Resilient Health Systems for KPK</li>
-                    <li><strong>۳.</strong> Meaningful Youth Engagement in Health Governance</li>
-                </ul>
-                <div class="proclamation-text">"These are the KPK Regional Priorities. Not imposed. Co-created. Not for the record. For the people."</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 23: BRIDGE TO PLENARIES -->
-        <section class="slide slide-23" id="slide23">
-            <div class="slide-content">
-                <div class="bridge-text">"This session is not the destination.<br>It is the bridge."</div>
-                <ul class="plenary-list">
-                    <li>📍 Objectives</li>
-                    <li>📍 LC Commitments</li>
-                    <li>📍 Timelines</li>
-                    <li>📍 Accountability</li>
-                </ul>
-                <div style="margin-top:30px;font-family:'Lora',serif;font-size:1.1rem;color:var(--sand);font-style:italic;">The plenaries will now receive these priorities.</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 24: BOX AND PROMISE -->
-        <section class="slide slide-24" id="slide24">
-            <div class="slide-content">
-                <div class="box-visual">📦</div>
-                <div class="box-text">"At the start, you wrote one truth of KPK's health. You placed it in this box."</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 25: AUTHORSHIP -->
-        <section class="slide slide-25" id="slide25">
-            <div class="slide-content">
-                <div class="authorship-urdu">"تاسو لیکوالان یاست."</div>
-                <div class="authorship-english">"You are the authors."</div>
-                <div class="authorship-call">The KPK Compact was made here.<br>Now, go to the plenaries and build the mandate.</div>
-                <div style="margin-top:30px;font-family:'Inter',sans-serif;font-size:0.9rem;color:var(--sand);letter-spacing:2px;text-transform:uppercase;opacity:0.8;">[NMO President Name] | NMO President, IFMSA-Pakistan</div>
-            </div>
-        </section>
-
-        <!-- SLIDE 26: CLOSING -->
-        <section class="slide slide-26" id="slide26">
-            <div class="slide-content">
-                <div class="closing-urdu">"زمونږ صحت. زمونږ ژمنه. زمونږ خیبر."</div>
-                <div class="closing-english">"Our health. Our promise. Our Khyber."</div>
-                <div class="closing-info">IFMSA-Pakistan | KPK Regional Meeting | 2026</div>
-            </div>
-        </section>
+<div class="bg-soft">
+  <div class="container">
+    <!-- Hero -->
+    <div class="hero">
+      <span class="btn-soft"><i class="fas fa-hand-holding-heart"></i> TPHT · IFMSA-Pakistan</span>
+      <h1 class="section-title" style="font-size:3.2rem; margin-top: 1rem;">Public Health Advocacy</h1>
+      <p style="font-size:1.3rem; max-width: 720px; margin: 1rem auto; color: #2c4b3e;">Doctors don't just treat illness — they rewrite the rules that create health.</p>
+      <div class="quote-block" style="background: #e2efe8; margin: 2rem auto; max-width: 800px;">
+        <i class="fas fa-quote-left" style="color:#2c7a5e; margin-right:10px;"></i> "Medical Education does not exist to provide students with a way of making a living, but to ensure the health of the community."
+      </div>
     </div>
 
-    <!-- Navigation Dots -->
-    <div class="nav-dots" id="navDots"></div>
+    <!-- Why advocate? + Doctors as advocates -->
+    <div class="section">
+      <h2 class="section-title">Why advocate? <i class="fas fa-bullhorn"></i></h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-eye"></i></div>
+          <h3>Raise awareness</h3>
+          <p>Illuminate silent crises — from air pollution to unequal access — and turn ignorance into public demand.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-landmark"></i></div>
+          <h3>Influence & change policies</h3>
+          <p>Policy is the invisible stethoscope: it touches millions. Advocacy rewrites those policies for justice.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-users"></i></div>
+          <h3>Speak for the unheard</h3>
+          <p>Represent individuals and communities who cannot speak for themselves. That’s the oath beyond the oath.</p>
+        </div>
+      </div>
+    </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.slide');
-            const navDotsContainer = document.getElementById('navDots');
-            let currentSlide = 0;
+    <!-- Definition & Advocacy actions -->
+    <div class="section">
+      <h2 class="section-title">What is Advocacy?</h2>
+      <div class="card" style="background: white; margin-bottom: 1.8rem;">
+        <p style="font-size:1.2rem; font-weight:500;"><i class="fas fa-gavel"></i> Advocacy is the <strong>deliberate process</strong> to directly & indirectly influence decision‑makers, stakeholders and audiences — to support actions that fulfil human rights.</p>
+      </div>
+      <h3 style="margin: 1.5rem 0 0.5rem; font-weight:700;">Advocacy Actions in practice</h3>
+      <div class="badge-list">
+        <span class="badge"><i class="fas fa-bullhorn"></i> Awareness-raising</span>
+        <span class="badge"><i class="fas fa-chart-line"></i> Behaviour change</span>
+        <span class="badge"><i class="fas fa-handshake"></i> Partnerships</span>
+        <span class="badge"><i class="fas fa-comments"></i> Lobbying</span>
+        <span class="badge"><i class="fas fa-flask"></i> Research/Publications</span>
+        <span class="badge"><i class="fas fa-users"></i> Social mobilization</span>
+        <span class="badge"><i class="fas fa-calendar-alt"></i> Conferences & events</span>
+        <span class="badge"><i class="fas fa-fist-raised"></i> Campaigning</span>
+        <span class="badge"><i class="fas fa-file-alt"></i> Policy-making</span>
+      </div>
+    </div>
 
-            // Create navigation dots
-            slides.forEach((slide, index) => {
-                const dot = document.createElement('div');
-                dot.classList.add('nav-dot');
-                if (index === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => scrollToSlide(index));
-                navDotsContainer.appendChild(dot);
-            });
+    <!-- Levels of change (international to interpersonal) -->
+    <div class="section">
+      <h2 class="section-title">Where health is decided</h2>
+      <div class="level-pyramid">
+        <div class="level-item"><span class="level-tag"><i class="fas fa-globe-asia"></i> International</span><span class="level-desc">Debt, greenhouse gas emissions, trade rules, arms trade — global forces shaping local lungs.</span></div>
+        <div class="level-item"><span class="level-tag"><i class="fas fa-map-marked-alt"></i> Regional</span><span class="level-desc">Conflict zones, cross-border trading policies, regional health emergencies.</span></div>
+        <div class="level-item"><span class="level-tag"><i class="fas fa-flag-checkered"></i> National</span><span class="level-desc">Health & education policy, freedom of speech, political representation, land rights.</span></div>
+        <div class="level-item"><span class="level-tag"><i class="fas fa-city"></i> Local authority</span><span class="level-desc">Provision of healthcare, sanitation, local clinics and budget allocation.</span></div>
+        <div class="level-item"><span class="level-tag"><i class="fas fa-tree"></i> Community</span><span class="level-desc">Allocation of land, role of women and children, community health workers.</span></div>
+        <div class="level-item"><span class="level-tag"><i class="fas fa-home"></i> Family</span><span class="level-desc">Who works, who goes to school, resource distribution, intergenerational health.</span></div>
+        <div class="level-item"><span class="level-tag"><i class="fas fa-hand-peace"></i> Interpersonal</span><span class="level-desc">Everyday decision-making, elections, daily choices that ripple into public health.</span></div>
+      </div>
+    </div>
 
-            const dots = document.querySelectorAll('.nav-dot');
+    <!-- Advocacy cycle steps 1-4 -->
+    <div class="section">
+      <h2 class="section-title">The advocacy blueprint</h2>
+      <div class="steps-container">
+        <div class="step-card"><span class="step-number">01</span><h3>Define the situation</h3><p>Evidence-based + human rights lens. Name the problem with precision and compassion.</p></div>
+        <div class="step-card"><span class="step-number">02</span><h3>Goals & Objectives</h3><p>Long-term vision + SMART objectives. Map opportunities & obstacles before moving.</p></div>
+        <div class="step-card"><span class="step-number">03</span><h3>Target Audience</h3><p><strong>Primary:</strong> Decision-makers who hold power.<br><strong>Secondary:</strong> Influencers who shape their will.</p></div>
+        <div class="step-card"><span class="step-number">04</span><h3>Stakeholder mapping</h3><p>Who wins? Who loses? Who holds silent influence? Map the terrain before the battle.</p></div>
+      </div>
+    </div>
 
-            function scrollToSlide(index) {
-                if (index >= 0 && index < slides.length) {
-                    slides[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    currentSlide = index;
-                    updateActiveDot();
-                }
-            }
+    <!-- Key messages + 5C's -->
+    <div class="section">
+      <h2 class="section-title">Craft messages that move mountains</h2>
+      <div class="card" style="background: #fefcf5;">
+        <h3><i class="fas fa-comment-dots"></i> The 5 C's of a key message</h3>
+        <div class="badge-list" style="margin-top: 10px;">
+          <span class="badge" style="background:#dcefe3;">Clear</span>
+          <span class="badge" style="background:#dcefe3;">Compelling</span>
+          <span class="badge" style="background:#dcefe3;">Concise</span>
+          <span class="badge" style="background:#dcefe3;">Consistent</span>
+          <span class="badge" style="background:#dcefe3;">Convincing</span>
+        </div>
+        <p style="margin-top: 1rem;"><i class="fas fa-lightbulb"></i> <strong>Problem → Solution model:</strong> “We want [decision-maker] to do [action] because it will solve/improve [problem Z].” <br> 
+        Combine logic + emotion: facts protect the head, stories protect the heart. <em>Example: tobacco control framed as protecting children — even when the goal is universal protection.</em></p>
+      </div>
+    </div>
 
-            function updateActiveDot() {
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === currentSlide);
-                });
-            }
+    <!-- HEAD HEART HANDS - slide 19 reimagined -->
+    <div class="section">
+      <h2 class="section-title">HEAD · HEART · HANDS</h2>
+      <p class="section-sub">The three chambers of the advocate's soul</p>
+      <div class="hhh-grid">
+        <div class="hhh-card"><div class="hhh-icon"><i class="fas fa-brain"></i></div><h3>HEAD</h3><p>Learn the policy, legislative landscape, partnerships and evidence. Knowledge without action is sterile — but action without knowledge is chaos.</p></div>
+        <div class="hhh-card"><div class="hhh-icon"><i class="fas fa-heart"></i></div><h3>HEART</h3><p>Use your authentic voice and patient stories. Compel change by sharing the human cost. A single story can soften the hardest policy wall.</p></div>
+        <div class="hhh-card"><div class="hhh-icon"><i class="fas fa-hands-helping"></i></div><h3>HANDS</h3><p>Build coalitions, strengthen community power, and act collectively. No one changes a system alone — but together we rewrite laws.</p></div>
+      </div>
+    </div>
 
-            // Keyboard navigation
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === 'PageDown') {
-                    e.preventDefault();
-                    if (currentSlide < slides.length - 1) {
-                        scrollToSlide(currentSlide + 1);
-                    }
-                } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
-                    e.preventDefault();
-                    if (currentSlide > 0) {
-                        scrollToSlide(currentSlide - 1);
-                    }
-                } else if (e.key === 'Home') {
-                    e.preventDefault();
-                    scrollToSlide(0);
-                } else if (e.key === 'End') {
-                    e.preventDefault();
-                    scrollToSlide(slides.length - 1);
-                }
-            });
+    <!-- Take home points – storytelling & evidence -->
+    <div class="section">
+      <h2 class="section-title">Take home · The art of persuasion</h2>
+      <div class="card-grid">
+        <div class="card"><i class="fas fa-chart-simple card-icon"></i><h3>Balance data & story</h3><p>Facts and figures are anchors, but too many numbers sink the ship. Weave statistics with real-life narratives and photographs that sear into memory.</p></div>
+        <div class="card"><i class="fas fa-microphone-alt card-icon"></i><h3>Effective spokesperson</h3><p>Research deeply, speak with real-life stories, maintain a consistent visual style. Your credibility is your currency — invest it wisely.</p></div>
+        <div class="card"><i class="fas fa-chalkboard-user card-icon"></i><h3>Repetition × resonance</h3><p>Key messages must be repeated across multiple channels, by multiple voices, until the truth becomes impossible to ignore.</p></div>
+      </div>
+    </div>
 
-            // Update current slide on scroll
-            let scrollTimeout;
-            window.addEventListener('scroll', function() {
-                clearTimeout(scrollTimeout);
-                scrollTimeout = setTimeout(() => {
-                    const scrollPosition = window.scrollY + window.innerHeight / 2;
-                    slides.forEach((slide, index) => {
-                        const slideTop = slide.offsetTop;
-                        const slideBottom = slideTop + slide.offsetHeight;
-                        if (scrollPosition >= slideTop && scrollPosition < slideBottom) {
-                            currentSlide = index;
-                            updateActiveDot();
-                        }
-                    });
-                }, 100);
-            });
+    <!-- Jim Rohn style wrap up / call to action -->
+    <div class="jim-quote">
+      <i class="fas fa-quote-right" style="font-size: 2rem; opacity: 0.5;"></i>
+      <p style="font-size: 1.5rem; font-weight: 500; margin: 1rem 0;">“Don’t wish it was easier. Wish you were better. Don’t wish for less problems. Wish for more skills. Advocate like lives depend on it — because they do.”</p>
+      <p style="margin-top: 1rem;">— Jim Rohn philosophy, channeled for the TPHT trainer</p>
+      <hr style="width: 80px; margin: 1.2rem auto; border-color:#3e7867;">
+      <p><i class="fas fa-graduation-cap"></i> You are not training students to pass exams. You are raising a generation of physician-advocates who redesign the determinants of health. Every policy changed, every life saved — starts with one courageous conversation.</p>
+    </div>
 
-            // Touch swipe support
-            let touchStartY = 0;
-            let touchEndY = 0;
+    <!-- additional wrap up + advocacy memory -->
+    <div class="section" style="text-align: center;">
+      <div class="card" style="background: #e7f0ed; max-width: 800px; margin: 1rem auto;">
+        <h3><i class="fas fa-chalkboard"></i> For TPHT Trainers – IFMSA-Pakistan</h3>
+        <p style="margin: 1rem 0;">Empower your trainees to move from awareness to action. Use stakeholder mapping, SMART objectives, and storytelling to turn lectures into movements. <br><strong>The health of Pakistan’s communities will reflect the courage of its medical advocates.</strong></p>
+        <div class="badge-list" style="justify-content: center;">
+          <span class="badge"><i class="fas fa-leaf"></i> Climate & health</span>
+          <span class="badge"><i class="fas fa-smoking-ban"></i> Tobacco control</span>
+          <span class="badge"><i class="fas fa-water"></i> Clean air & water</span>
+          <span class="badge"><i class="fas fa-school"></i> Health literacy</span>
+        </div>
+      </div>
+    </div>
 
-            document.addEventListener('touchstart', function(e) {
-                touchStartY = e.changedTouches[0].screenY;
-            });
-
-            document.addEventListener('touchend', function(e) {
-                touchEndY = e.changedTouches[0].screenY;
-                const swipeDistance = touchStartY - touchEndY;
-                if (Math.abs(swipeDistance) > 50) {
-                    if (swipeDistance > 0 && currentSlide < slides.length - 1) {
-                        scrollToSlide(currentSlide + 1);
-                    } else if (swipeDistance < 0 && currentSlide > 0) {
-                        scrollToSlide(currentSlide - 1);
-                    }
-                }
-            });
-
-            console.log('🟠 Da Khyber Khel — The KPK Health Futures Protocol');
-            console.log('🟠 NMO President, IFMSA-Pakistan');
-            console.log('🟠 Use Arrow Keys, Page Up/Down, or click dots to navigate');
-            console.log('🟠 Swipe on mobile devices');
-        });
-    </script>
+    <footer class="footer">
+      <i class="fas fa-hand-sparkles"></i> Public Health Advocacy · TPHT Curriculum<br>
+      <span style="font-size: 0.85rem;">Inspired by IFMSA global advocacy principles & the heart of Pakistani medical leadership — Trainers, go shape the future.</span><br>
+      <span style="font-size: 0.75rem; opacity: 0.7;">“Advocacy is the deliberate process to fulfil human rights — your voice is the prescription.”</span>
+    </footer>
+  </div>
+</div>
 </body>
 </html>
 ```
